@@ -37,8 +37,8 @@ const NAV_LINKS = [
   { href: '/books', label: 'Books' },
   { href: '/authors', label: 'Author' },
   { href: '/services', label: 'Services' },
-  { href: '/book-to-film', label: 'Film', active: true },
   { href: '/yt-sharks', label: 'Youtube' },
+  { href: '/news', label: 'Events' },
   { href: '/careers', label: 'Careers' },
 ];
 
@@ -64,9 +64,7 @@ const SiteHeader = () => {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`text-[13px] xl:text-[14px] whitespace-nowrap transition-colors ${
-                  l.active ? 'text-neutral-900 font-bold' : 'text-neutral-800 font-medium hover:text-[#F1B300]'
-                }`}
+                className="text-[13px] xl:text-[14px] whitespace-nowrap text-neutral-800 font-medium hover:text-[#F1B300] transition-colors"
               >
                 {l.label}
               </Link>
@@ -76,9 +74,9 @@ const SiteHeader = () => {
           <div className="flex items-center gap-2 shrink-0">
             <Link
               href="#booking"
-              className="hidden sm:inline-flex items-center justify-center bg-[#F1B300] hover:bg-[#dba200] text-[#1A2233] text-[13px] xl:text-[14px] font-bold px-5 xl:px-6 py-2 xl:py-2.5 rounded-full transition-colors"
+              className="hidden sm:inline-flex items-center justify-center bg-[#F1B300] hover:bg-[#dba200] text-white text-[13px] xl:text-[14px] font-bold px-5 xl:px-6 py-2 xl:py-2.5 rounded-full transition-colors"
             >
-              Bring My Story to Life
+              Contact
             </Link>
             <button
               type="button"
@@ -99,7 +97,7 @@ const SiteHeader = () => {
                   <Link
                     href={l.href}
                     onClick={() => setIsOpen(false)}
-                    className={`block py-2.5 text-base ${l.active ? 'text-neutral-900 font-bold' : 'text-neutral-800'}`}
+                    className="block py-2.5 text-base text-neutral-800"
                   >
                     {l.label}
                   </Link>
@@ -109,9 +107,9 @@ const SiteHeader = () => {
                 <Link
                   href="#booking"
                   onClick={() => setIsOpen(false)}
-                  className="inline-flex items-center justify-center bg-[#F1B300] text-[#1A2233] font-bold px-6 py-2.5 rounded-full"
+                  className="inline-flex items-center justify-center bg-[#F1B300] text-white font-bold px-6 py-2.5 rounded-full"
                 >
-                  Bring My Story to Life
+                  Contact
                 </Link>
               </li>
             </ul>
