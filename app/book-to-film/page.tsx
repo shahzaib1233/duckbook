@@ -276,7 +276,7 @@ const Hero = () => (
         {/* Right visual — live booking calendar + floating badges */}
         <Reveal y={30} delay={0.2} className="relative mx-auto w-full max-w-[500px]">
           <div className="overflow-hidden rounded-[20px] bg-white shadow-[0_26px_60px_-28px_rgba(0,0,0,0.3)] ring-1 ring-black/[0.05]">
-            <CalendlyInlineEmbed containerId="calendly-book-to-film-hero" heightPx={560} heightPxMobile={560} className="w-full" />
+            <CalendlyInlineEmbed containerId="calendly-book-to-film-hero" heightPx={460} heightPxMobile={460} className="w-full" />
           </div>
           <div className="absolute -bottom-5 -left-2 sm:-left-5 bg-white rounded-2xl shadow-lg ring-1 ring-black/5 px-3.5 py-2.5 flex items-center gap-2 z-10">
             <Clock size={18} className="text-[#F1B300]" />
