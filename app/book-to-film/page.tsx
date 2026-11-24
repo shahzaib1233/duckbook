@@ -197,7 +197,7 @@ const Hero = () => (
   <section className="relative overflow-hidden pt-8 sm:pt-12 lg:pt-16 pb-14 sm:pb-20">
     <div className="pointer-events-none absolute -top-24 right-0 w-[460px] h-[460px] rounded-full bg-[#F1B300]/10 blur-3xl" />
     <div className="relative max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-1 lg:grid-cols-[1.12fr_0.88fr] gap-12 lg:gap-10 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-[1.12fr_0.88fr] gap-12 lg:gap-10 items-stretch">
         {/* Left copy */}
         <div>
           <Reveal y={16}>
@@ -276,7 +276,7 @@ const Hero = () => (
         {/* Right visual — live booking calendar + floating badges */}
         <Reveal y={30} delay={0.2} className="relative mx-auto w-full max-w-[500px]">
           <div className="overflow-hidden rounded-[20px] bg-white shadow-[0_26px_60px_-28px_rgba(0,0,0,0.3)] ring-1 ring-black/[0.05]">
-            <CalendlyInlineEmbed containerId="calendly-book-to-film-hero" heightPx={640} heightPxMobile={640} className="w-full" />
+            <CalendlyInlineEmbed containerId="calendly-book-to-film-hero" heightPx={560} heightPxMobile={560} className="w-full" />
           </div>
           <div className="absolute -bottom-5 -left-2 sm:-left-5 bg-white rounded-2xl shadow-lg ring-1 ring-black/5 px-3.5 py-2.5 flex items-center gap-2 z-10">
             <Clock size={18} className="text-[#F1B300]" />
