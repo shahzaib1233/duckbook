@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import Footer from '../components/Footer';
 import CalendlyInlineEmbed from '../components/CalendlyInlineEmbed';
+import ContactFormCard from '../components/ContactFormCard';
 
 const MOBILE_ROW =
   'flex overflow-x-auto snap-x snap-mandatory -mx-4 px-4 scroll-px-4 sm:-mx-6 sm:px-6 sm:scroll-px-6 md:mx-0 md:px-0 md:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden';
@@ -454,7 +455,7 @@ const VideoPreview = ({ id, labels }: { id: string; labels?: [string, string] })
 
 const WAYS = [
   {
-    cornerL: 'Cinema Experience', cornerR: '10–15 Minutes · 4K', popular: false, videoId: '05OWsG4sSX8', labels: undefined as undefined | [string, string],
+    cornerL: 'Cinema Experience', cornerR: '10–15 Minutes · 4K', popular: false, videoId: 'ha1NneZGm7A', labels: undefined as undefined | [string, string],
     title: 'Animated Short Film',
     desc: 'A comprehensive, high-retention cinematic trailer and standalone short film encapsulating your story’s most dramatic arcs, climax, and emotional core.',
     items: [
@@ -593,12 +594,12 @@ const HowItWorks = () => (
 /* -------------------------------------------------------------------------- */
 
 const GENRES = [
-  { img: '/youtube-page/book-1.png', tag: 'Fantasy & Adventure', title: 'The Lost Healer', desc: 'Glowing mystical aesthetics, sweeping magical landscapes, and fluid spellcast animation that captures epic worldbuilding.' },
-  { img: '/youtube-page/book-2.png', tag: "Children's Stories", title: 'Whimsical 2D Worlds', desc: 'Vibrant, friendly character design with lively walk cycles and heartwarming narrator voices that delight young readers and parents.' },
-  { img: '/youtube-page/book-3.png', tag: 'Romance & Drama', title: 'Return to Me', desc: 'Emotive close-ups, warm sunset color palettes, subtle facial expressions, and acoustic string scores that evoke deep longing.' },
-  { img: '/youtube-page/book-4.png', tag: 'Science Fiction', title: 'Paradox & Beyond', desc: 'Futuristic neon holograms, deep-space visual dynamics, tense synthesized sound design, and time-bending story pacing.' },
+  { img: '/youtube-page/book-3.png', tag: 'Fantasy & Adventure', title: 'The Lost Healer', desc: 'Glowing mystical aesthetics, sweeping magical landscapes, and fluid spellcast animation that captures epic worldbuilding.' },
+  { img: '/youtube-page/book-1.png', tag: "Children's Stories", title: 'Whimsical 2D Worlds', desc: 'Vibrant, friendly character design with lively walk cycles and heartwarming narrator voices that delight young readers and parents.' },
+  { img: '/youtube-page/book-4.png', tag: 'Romance & Drama', title: 'Return to Me', desc: 'Emotive close-ups, warm sunset color palettes, subtle facial expressions, and acoustic string scores that evoke deep longing.' },
+  { img: '/youtube-page/hero-right-paradox.png', tag: 'Science Fiction', title: 'Paradox & Beyond', desc: 'Futuristic neon holograms, deep-space visual dynamics, tense synthesized sound design, and time-bending story pacing.' },
   { img: '/youtube-page/book-5.png', tag: 'Historical & Memoir', title: 'Historical Narratives', desc: 'Authentic period textures, documentary-style voiceovers, and historical accuracy that establish unmatched authority.' },
-  { img: '/youtube-page/book-6.png', tag: 'Mystery & Thriller', title: 'Fatal Exchange', desc: 'Noir shadows, suspenseful heartbeat sound effects, rapid-cut cliffhangers, and psychological tension that demand answers.' },
+  { img: '/youtube-page/hero-right-fatal-exchange.png', tag: 'Mystery & Thriller', title: 'Fatal Exchange', desc: 'Noir shadows, suspenseful heartbeat sound effects, rapid-cut cliffhangers, and psychological tension that demand answers.' },
 ];
 
 const Genres = () => (
@@ -612,9 +613,9 @@ const Genres = () => (
         {GENRES.map((g, i) => (
           <Reveal key={g.title} delay={(i % 3) * 0.08} className="shrink-0 w-[78%] max-w-[380px] snap-start md:w-auto md:max-w-none">
             <div className="group h-full rounded-[20px] bg-white ring-1 ring-black/[0.06] shadow-sm overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all">
-              <div className="relative aspect-[16/10] bg-neutral-100 overflow-hidden">
-                {/* EXPORT: swap for genre art */}
-                <Image src={g.img} alt={g.title} fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="relative aspect-[4/3] bg-[#F3EEE6] overflow-hidden">
+                {/* Book covers are portrait — show them whole, not cropped */}
+                <Image src={g.img} alt={g.title} fill sizes="(min-width: 1024px) 380px, (min-width: 768px) 45vw, 78vw" className="object-contain p-4 drop-shadow-[0_10px_18px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover:scale-105" />
                 <span className="absolute top-3 left-3 rounded-md bg-white/95 backdrop-blur text-[#1A2233] text-[9.5px] font-bold uppercase tracking-wide px-2.5 py-1 shadow-sm">
                   {g.tag}
                 </span>
@@ -651,19 +652,21 @@ const SHOWCASE_TABS = [
 ];
 
 const SHOWCASE_VIDEOS = [
-  { id: 'ha1NneZGm7A', dur: '18:42', title: 'The Entire History of Human Civilizations', desc: 'Documentary-style animation adapting a non-fiction history manuscript into high-yield educational video.', cats: ['all', 'short', 'trailer'] },
-  { id: '7ChWjQ-vnEU', dur: '11:15', title: 'America Renewed: Chapter 1 Explained', desc: 'Cinematic narrative trailer that unlocked 85,000 algorithmic impressions in its first month.', cats: ['all', 'episodic', 'trailer'] },
-  { id: '05OWsG4sSX8', dur: '09:20', title: 'Mabel: A Gothic Mystery', desc: 'Atmospheric shadows, Victorian set design, and haunting audio driving direct Kindle book downloads.', cats: ['all', 'short'] },
-  { id: 'K18Tnq7sC6M', dur: '07:30', title: 'The White Wolf — The Making of John', desc: 'Recurring character model sheets and emotional facial rigs built for a serialized animated universe.', cats: ['all', 'character', 'episodic'] },
-  { id: 'Ou80IomKkJ0', dur: '05:12', title: 'The Trainee Who Captured the Instructors', desc: 'A rapid-cut cinematic clip engineered for high click-through and binge retention.', cats: ['all', 'trailer', 'character'] },
-  { id: 'VjTJvwgJnGc', dur: '04:08', title: 'The Little Red Hen — Narrated Story', desc: 'Friendly 2D character design and lively walk cycles for a children’s narrated adaptation.', cats: ['all', 'short', 'character'] },
+  { id: '7ChWjQ-vnEU', title: 'America Renewed: Chapter 1 Explained', desc: 'Narrative-driven chapter video turning a non-fiction manuscript into a high-retention YouTube explainer.', cats: ['all', 'episodic', 'trailer'] },
+  { id: '05OWsG4sSX8', title: 'The Ghost of Cancun — Episode 3', desc: 'The Soldier Who Chose Love Over War: a serialized military-motivation story built chapter by chapter.', cats: ['all', 'short', 'episodic', 'character'] },
+  { id: 'Ou80IomKkJ0', title: 'The Ghost of Cancun — Episode 2', desc: 'The Trainee Who Captured the Instructors: character-led episode engineered for binge retention.', cats: ['all', 'episodic', 'trailer', 'character'] },
+  { id: 'VjTJvwgJnGc', title: 'The Little Red Hen — Narrated Story', desc: 'Friendly 2D character design and lively narration for a children’s story adaptation.', cats: ['all', 'short', 'character'] },
+  { id: 'SA2N_0wqnms', title: 'America Renewed: Chapter 4 — Part 2', desc: 'Redirecting tariffs to small businesses: a multi-part chapter series keeping viewers watching episode to episode.', cats: ['all', 'short', 'episodic', 'trailer'] },
+  { id: 'NJ7s9n93pJ0', title: 'America Renewed: Chapter 3 — SS-X', desc: 'A Social Security system built on ownership, explained through clean motion graphics and voiceover.', cats: ['all', 'short', 'episodic', 'trailer', 'character'] },
 ];
 
 const Showcase = () => {
   const [tab, setTab] = useState('all');
+  const [activeId, setActiveId] = useState<string | null>(null);
   const filtered = useMemo(() => SHOWCASE_VIDEOS.filter((v) => v.cats.includes(tab)), [tab]);
-  const featured = filtered[0] ?? SHOWCASE_VIDEOS[0];
-  const thumbs = filtered.slice(0, 3);
+  // The TV plays the clicked clip (or the first of the tab); the strip below lists the *other* clips, never the one on the TV.
+  const featured = filtered.find((v) => v.id === activeId) ?? filtered[0] ?? SHOWCASE_VIDEOS[0];
+  const thumbs = filtered.filter((v) => v.id !== featured.id).slice(0, 3);
 
   return (
     <section id="showcase" className="relative bg-white py-14 sm:py-20 scroll-mt-24">
@@ -676,7 +679,7 @@ const Showcase = () => {
           {SHOWCASE_TABS.map((t) => (
             <button
               key={t.key}
-              onClick={() => setTab(t.key)}
+              onClick={() => { setTab(t.key); setActiveId(null); }}
               className={`shrink-0 whitespace-nowrap rounded-full px-4 py-2 text-[12.5px] font-semibold transition-colors ${
                 tab === t.key ? 'bg-[#F1B300] text-[#1A2233]' : 'bg-[#FAF8F5] text-neutral-500 ring-1 ring-black/[0.06] hover:text-neutral-900'
               }`}
@@ -717,7 +720,12 @@ const Showcase = () => {
             className={`${MOBILE_ROW} mt-9 gap-5 pb-4 md:pb-0 md:grid md:grid-cols-3`}
           >
             {thumbs.map((v) => (
-              <a key={v.id} href={`https://youtube.com/watch?v=${v.id}`} target="_blank" rel="noopener noreferrer" className="group block shrink-0 w-[80%] max-w-[360px] snap-start md:w-auto md:max-w-none">
+              <button
+                key={v.id}
+                type="button"
+                onClick={() => setActiveId(v.id)}
+                className="group block text-left shrink-0 w-[80%] max-w-[360px] snap-start md:w-auto md:max-w-none"
+              >
                 <div className="relative aspect-video rounded-[16px] overflow-hidden bg-black shadow-sm">
                   <Image src={`https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`} alt={v.title} fill className="object-cover opacity-90 transition-transform duration-500 group-hover:scale-105" unoptimized />
                   <span className="absolute inset-0 grid place-items-center">
@@ -725,11 +733,10 @@ const Showcase = () => {
                       <Play className="w-4 h-4 text-white fill-white translate-x-0.5" />
                     </span>
                   </span>
-                  <span className="absolute bottom-2 right-2 text-[10px] font-semibold text-white bg-black/70 rounded px-1.5 py-0.5">{v.dur}</span>
                 </div>
                 <h3 className="mt-3 font-['Poppins'] font-bold text-[15px] text-[#1A2233] leading-snug">{v.title}</h3>
                 <p className="mt-1 text-[12.5px] text-neutral-500 leading-[1.5]">{v.desc}</p>
-              </a>
+              </button>
             ))}
           </motion.div>
         </AnimatePresence>
@@ -802,12 +809,12 @@ const Booking = () => (
       <div className="mt-10 grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-6 items-stretch">
         <Reveal>
           <div className="h-full rounded-[24px] bg-white ring-1 ring-black/[0.06] shadow-sm p-7 sm:p-9 flex flex-col">
-            <Eyebrow>Free Strategy Call</Eyebrow>
+            <Eyebrow>Free Consultation</Eyebrow>
             <h3 className="mt-3 font-['Poppins'] font-bold text-[23px] sm:text-[27px] leading-tight text-[#1A2233]">
-              Book Your Free 30-Minute Creative Strategy Call
+              Get Your Free Creative Strategy Call
             </h3>
             <p className="mt-3 text-[14px] text-neutral-500 leading-[1.65]">
-              Walk through your story with our creative directors. We&apos;ll examine your manuscript, recommend ideal formats,
+              Share a few details and our creative directors will reach out. We&apos;ll examine your manuscript, recommend ideal formats,
               and present your 7-day roadmap with zero obligation.
             </p>
             <ul className="mt-6 space-y-3.5 flex-1">
@@ -821,9 +828,7 @@ const Booking = () => (
         </Reveal>
 
         <Reveal delay={0.1}>
-          <div className="h-full overflow-hidden rounded-[24px] bg-white ring-1 ring-black/[0.06] shadow-sm">
-            <CalendlyInlineEmbed containerId="calendly-book-to-film" heightPx={680} heightPxMobile={680} className="w-full" />
-          </div>
+          <ContactFormCard defaultProject="book to film" source="Book to Film Page" />
         </Reveal>
       </div>
     </div>
